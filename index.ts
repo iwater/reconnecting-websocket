@@ -218,7 +218,7 @@ const ReconnectingWebsocket = function(
             }
 
             // run and remove level0
-            if (ws.onclose) {
+            if (ws.onclose && typeof ws.onclose === 'function') {
                 savedOnClose = ws.onclose;
                 ws.onclose(fakeCloseEvent);
                 ws.onclose = null;

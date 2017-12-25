@@ -178,7 +178,7 @@ var ReconnectingWebsocket = function (url, protocols, options) {
                 });
             }
             // run and remove level0
-            if (ws.onclose) {
+            if (ws.onclose && typeof ws.onclose === 'function') {
                 savedOnClose = ws.onclose;
                 ws.onclose(fakeCloseEvent_1);
                 ws.onclose = null;
